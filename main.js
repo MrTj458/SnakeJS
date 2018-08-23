@@ -10,22 +10,25 @@ ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height)
 
 document.addEventListener('keydown', changeDirection)
 
-var snake = [
-  { x: 300, y: 300 },
-  { x: 280, y: 300 },
-  { x: 260, y: 300 },
-  { x: 240, y: 300 },
-  { x: 220, y: 300 },
-];
+var snake = []
 
-var dx = 20
-var dy = 0
+var dx
+var dy
 var foodX
 var foodY
-var score = 0
+var score
 
-createFood()
-main()
+start()
+
+function start() {
+  dx = 20
+  dy = 0
+  score = 0
+  drawScore()
+  setupSnake()
+  createFood()
+  main()
+}
 
 function main() {
   if (didGameEnd()) return
@@ -37,6 +40,16 @@ function main() {
 
     main()
   }, 100)
+}
+
+function setupSnake() {
+  snake = [
+    { x: 300, y: 300 },
+    { x: 280, y: 300 },
+    { x: 260, y: 300 },
+    { x: 240, y: 300 },
+    { x: 220, y: 300 }
+  ]
 }
 
 function drawSnakePart(snakePart) {
@@ -92,7 +105,7 @@ function advanceSnake() {
   var didEatFood = snake[0].x == foodX && snake[0].y == foodY
   if(didEatFood) {
     score += 10
-    document.getElementById('score').innerHTML = "Score: " + score
+    drawScore()
     createFood()
   } else {
     snake.pop()
@@ -121,6 +134,10 @@ function clearCanvas() {
   ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height)
 }
 
+function drawScore() {
+  document.getElementById('score').innerHTML = "Score: " + score
+}
+
 function randomTen(min, max) {
   return Math.round((Math.random() * (max - min) + min) / 20) * 20
 }
@@ -144,3 +161,7 @@ function drawFood() {
   ctx.fillRect(foodX, foodY, 20, 20)
   ctx.strokeRect(foodX, foodY, 20, 20)
 }
+
+document.getElementById('reset').addEventListener('click', function(e) {
+  start()
+})
