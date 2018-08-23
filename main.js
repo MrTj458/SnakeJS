@@ -7,22 +7,29 @@ var snake = []
 
 var dx, dy
 var foodX, foodY
-var score
+var score = 0
+var lastScore = 0
+var highScore = 0
 
 start()
 
 function start() {
+  updateScores()
   dx = 20
   dy = 0
   score = 0
-  drawScore()
+  drawScores()
   setupSnake()
   createFood()
   main()
 }
 
 function main() {
-  if (didGameEnd()) return
+  if (didGameEnd()) {
+    updateScores()
+    drawScores()
+    return
+  }
   setTimeout( function() {
     clearCanvas()
     drawFood()
@@ -96,7 +103,7 @@ function advanceSnake() {
   var didEatFood = snake[0].x == foodX && snake[0].y == foodY
   if(didEatFood) {
     score += 10
-    drawScore()
+    drawScores()
     createFood()
   } else {
     snake.pop()
@@ -125,8 +132,17 @@ function clearCanvas() {
   ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height)
 }
 
-function drawScore() {
-  document.getElementById('score').innerHTML = "Score: " + score
+function drawScores() {
+  document.getElementById('score').innerHTML = 'Score: ' + score
+  document.getElementById('high-score').innerHTML = 'High Score: ' + highScore
+  document.getElementById('last-score').innerHTML = 'Last Score: ' + lastScore
+}
+
+function updateScores() {
+  if(score > highScore) {
+    highScore = score
+  }
+  lastScore = score
 }
 
 function randomTen(min, max) {
