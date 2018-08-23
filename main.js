@@ -126,7 +126,7 @@ function didGameEnd() {
 
 function clearCanvas() {
   ctx.fillStyle = 'lightgray'
-  ctx.strokeStyle = 'black'
+  ctx.strokeStyle = 'darkgreen'
 
   ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height)
   ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height)

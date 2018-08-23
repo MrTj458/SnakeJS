@@ -13,6 +13,7 @@ body {
   display: flex;
   height: 100px;
   align-items: center;
+  font-size: 65px;
 }
 
 .title {
@@ -29,8 +30,8 @@ body {
 
 .ui {
   display: flex;
-  width: 300px;
-  justify-content: space-between;
+  width: 600px;
+  justify-content: space-around;
 }
 
 .game-container {
@@ -47,9 +48,24 @@ body {
 
 .scores {
   display: flex;
-  width: 300px;
-  justify-content: space-between;
+  width: 600px;
+  justify-content: space-around;
   color: lightgreen;
+}
+
+.footer-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  color: darkgreen;
+  font-size: 12px;
+  width: 600px;
+  justify-content: flex-start;
 }
 
 #score {
@@ -63,4 +79,8 @@ body {
   border: 1px solid lightgreen;
   color: lightgreen;
   cursor: pointer;
+}
+
+#GameCanvas {
+  border: solid 2px darkgreen;
 }
