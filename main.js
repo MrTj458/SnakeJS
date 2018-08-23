@@ -1,21 +1,12 @@
-const CANVAS_BORDER_COLOR = 'black'
-const CANVAS_BACKGROUND_COLOR = 'white'
-
 var gameCanvas = document.getElementById('GameCanvas')
 var ctx = gameCanvas.getContext('2d')
-ctx.fillStyle = CANVAS_BACKGROUND_COLOR
-ctx.strokeStyle = CANVAS_BORDER_COLOR
-ctx.fillRect(0, 0, gameCanvas.Width, gameCanvas.height)
-ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height)
 
 document.addEventListener('keydown', changeDirection)
 
 var snake = []
 
-var dx
-var dy
-var foodX
-var foodY
+var dx, dy
+var foodX, foodY
 var score
 
 start()
@@ -127,7 +118,7 @@ function didGameEnd() {
 }
 
 function clearCanvas() {
-  ctx.fillStyle = 'white'
+  ctx.fillStyle = 'lightgray'
   ctx.strokeStyle = 'black'
 
   ctx.fillRect(0, 0, gameCanvas.width, gameCanvas.height)

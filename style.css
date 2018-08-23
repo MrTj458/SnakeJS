@@ -1,3 +1,52 @@
+body {
+  background-color: lightgreen;
+  font-family: Arial;
+}
+
+.header-container {
+  display: flex;
+  background-color: lightGreen;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  height: 100px;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  color: darkgreen;
+}
+
+.ui-container {
+  display: flex;
+  background-color: darkgreen;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.ui {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+}
+
 #score {
-  color: green;
+  color: lightgreen;
+}
+
+#reset {
+  height: 30px;
+  align-self: center;
+  background-color: darkgreen;
+  border: 1px solid lightgreen;
+  color: lightgreen;
+  cursor: pointer;
 }
