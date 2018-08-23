@@ -91,8 +91,8 @@ function advanceSnake() {
 
   var didEatFood = snake[0].x == foodX && snake[0].y == foodY
   if(didEatFood) {
-    score += 20
-    document.getElementById('score').innerHTML = score
+    score += 10
+    document.getElementById('score').innerHTML = "Score: " + score
     createFood()
   } else {
     snake.pop()
