@@ -38,6 +38,20 @@ body {
   justify-content: center;
 }
 
+.scores-container {
+  display: flex;
+  justify-content: center;
+  background-color: darkgreen;
+  margin-top: 10px;
+}
+
+.scores {
+  display: flex;
+  width: 300px;
+  justify-content: space-between;
+  color: lightgreen;
+}
+
 #score {
   color: lightgreen;
 }
